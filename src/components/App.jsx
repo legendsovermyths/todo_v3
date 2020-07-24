@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import ListItems from "./listitems"
+import ListItem from "./listitems"
 import Input from "./input"
 
 function App() {
@@ -14,10 +14,12 @@ function App() {
       )
   }
   function deleteItem(id){
-    console.log("item was selected"+id);
+    editListOfItems(prevValue=>{
+      return prevValue.filter((item,index)=>{ return index!==id;})
+    })
   }
-  function makeList(item){
-    return <li>{item}</li>
+  function makeList(item,index){
+    return <ListItem id={index} onClick={()=>deleteItem(index)} listItem={item}/>
   }
 
   return (
@@ -31,7 +33,13 @@ function App() {
           <span>Add</span>
         </button>
       </div>
-      <ListItems listOfItems={listOfItems} makeList={makeList}/>
+    <ul>
+    {listOfItems.map(function (currentelement, index) {
+      return makeList(currentelement,index)
+      }
+    )
+    }
+    </ul>
     </div>
   );
 }

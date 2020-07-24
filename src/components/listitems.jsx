@@ -1,9 +1,5 @@
 import React from "react"
-function ListItems(props){
-  return <div>
-    <ul>
-      {props.listOfItems.map(props.makeList)}
-    </ul>
-  </div>
+function ListItem(props){
+  return <li onClick={props.onClick}>{props.listItem}</li>
 }
-export default ListItems
+export default ListItem
