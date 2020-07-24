@@ -1,4 +1,6 @@
 import React,{useState} from "react";
+import ListItems from "./listitems"
+import Input from "./input"
 
 function App() {
   let [listOfItems,editListOfItems]=useState(["An Item"])
@@ -11,6 +13,9 @@ function App() {
          [...listOfItems,item]
       )
   }
+  function deleteItem(id){
+    console.log("item was selected"+id);
+  }
   function makeList(item){
     return <li>{item}</li>
   }
@@ -21,16 +26,12 @@ function App() {
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input onChange={handelChange} type="text" />
+        <Input handelChange={handelChange}/>
         <button onClick={handelClick}>
           <span>Add</span>
         </button>
       </div>
-      <div>
-        <ul>
-          {listOfItems.map(makeList)}
-        </ul>
-      </div>
+      <ListItems listOfItems={listOfItems} makeList={makeList}/>
     </div>
   );
 }
