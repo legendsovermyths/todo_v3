@@ -1,5 +1,5 @@
-import React from "react"
-function ListItem(props){
-  return <li onClick={props.onClick}>{props.listItem}</li>
+import React from "react";
+function ListItem(props) {
+  return <li onClick={props.onClick}>{props.listItem}</li>;
 }
-export default ListItem
+export default ListItem;

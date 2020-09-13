@@ -1,5 +1,5 @@
-import React from "react"
-function Input(props){
-  return <input onChange={props.handelChange} type="text" />
+import React from "react";
+function Input(props) {
+  return <input onChange={props.handelChange} type='text' />;
 }
-export default Input
+export default Input;
